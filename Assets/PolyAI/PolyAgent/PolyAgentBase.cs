@@ -14,6 +14,8 @@ public abstract class PolyAgentBase : MonoBehaviour
     protected float interval = 0.5f;
     protected float timer = 0.0f;
 
+    public KnowledgeBase PrivateKlg { get => privateKlg; }
+
     public void SetCommonKlg(KnowledgeBase _knowledge)
     {
         commonKlg = _knowledge;

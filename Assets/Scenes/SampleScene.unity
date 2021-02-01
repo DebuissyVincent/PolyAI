@@ -524,6 +524,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PolyAgentSimple
       objectReference: {fileID: 0}
+    - target: {fileID: 6804455752016973659, guid: 6f5da354a0406a24aad64793929783ac, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6f5da354a0406a24aad64793929783ac, type: 3}
 --- !u!1 &6804455750250492598 stripped
@@ -543,6 +547,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0afc5c521e9875142803214bde2eb9ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  destination: {x: 0, y: 0, z: 0}
+  destination: {x: 2, y: 0, z: 2}
   minRange: 0
-  maxRange: 1
+  maxRange: -1

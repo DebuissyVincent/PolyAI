@@ -66,8 +66,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 555623574841810553, guid: 4e86c6aceef449243a4f6951b18ecbd6, type: 3}
       propertyPath: m_Name
-      value: PolyAgent
+      value: PolyAgentBT
       objectReference: {fileID: 0}
+    - target: {fileID: 555623575012473209, guid: 4e86c6aceef449243a4f6951b18ecbd6, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 3e5b0c2f0fb0d794bbd4af7db3bb6745, type: 2}
+    - target: {fileID: 555623576586436498, guid: 4e86c6aceef449243a4f6951b18ecbd6, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 565aab3ad3b7eab40ad86ce56362ddc9, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4e86c6aceef449243a4f6951b18ecbd6, type: 3}
 --- !u!1 &1353758294311948253 stripped

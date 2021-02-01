@@ -10,11 +10,11 @@ public abstract class BTSetup : MonoBehaviour
     {
         BehaviourTree bt = new BehaviourTree();
 
-        BuildTree(bt, privateKlg);
+        BuildTree(bt, _agent);
 
         _agent.SetPrivateKlg(privateKlg);
         _agent.SetBehaviourTree(bt);
     }
 
-    public abstract void BuildTree(BehaviourTree _bt, KnowledgeBase _privateKlg);
+    public abstract void BuildTree(BehaviourTree _bt, PolyAgentBT _agent);
 }

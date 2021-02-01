@@ -4,5 +4,5 @@ using UnityEngine;
 
 public abstract class TaskSetup : MonoBehaviour
 {
-    public abstract BTNode SetupTask();
+    public abstract Task SetupTask();
 }

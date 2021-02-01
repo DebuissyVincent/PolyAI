@@ -2,11 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class ConstantUpdateNode : BTNode
+public interface ConstantUpdateNode
 {
-    protected bool needsUpdate = false;
-
-    public bool NeedsUpdate { get => needsUpdate; }
-
-    public abstract void Update();
+    void Update();
 }

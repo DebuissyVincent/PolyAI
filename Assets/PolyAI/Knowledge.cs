@@ -1,9 +1,11 @@
-﻿using UnityEngine;
+﻿using System;
+using System.Collections.Generic;
+using UnityEngine;
 
 [System.Serializable]
 public struct CustomKnowledge
 {
-    public string key;
+    public Type type;
     public object value;
 }
 
@@ -11,7 +13,23 @@ public struct CustomKnowledge
 public class Knowledge : KnowledgeBase
 {
     [SerializeField]
-    private CustomKnowledge[] customKnowledge = null;
+    private Dictionary<string, object> customKnowledge = new Dictionary<string, object>();
 
-    public CustomKnowledge[] CustomKnowledge { get => customKnowledge; }
+    public bool HasKnowledge(string _key)
+    {
+        return customKnowledge.ContainsKey(_key);
+    }
+
+    public object GetKnowledge(string _key)
+    {
+        if (customKnowledge.ContainsKey(_key))
+        {
+            return customKnowledge[_key];
+        }
+        else
+        {
+            Debug.LogError("Tried to access non-existing custom knowledge");
+        }
+        return null;
+    }
 }

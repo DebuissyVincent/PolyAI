@@ -4,9 +4,13 @@ using UnityEngine;
 
 public abstract class Decorator : BTNode
 {
-    protected BTNode child;
+    protected BTNode child = null;
     protected bool isNot;
 
+    /// <summary>
+    /// Basic Decorator constructor.
+    /// </summary>
+    /// <param name="_isNot">Will reverse some of the Decorator behaviours.</param>
     protected Decorator(bool _isNot)
     {
         isNot = _isNot;

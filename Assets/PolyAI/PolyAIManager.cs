@@ -41,10 +41,7 @@ public class PolyAIManager : MonoBehaviour
     {
         foreach (ConstantUpdateNode node in constantUpdateNodes)
         {
-            if (node.NeedsUpdate)
-            {
-                node.Update();
-            }
+            node.Update();
         }
     }
 

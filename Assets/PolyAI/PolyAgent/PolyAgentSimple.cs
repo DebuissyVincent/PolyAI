@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PolyAgentSimple : PolyAgentBase
 {
-    private BTNode task;
+    private Task task;
 
     private void Awake()
     {

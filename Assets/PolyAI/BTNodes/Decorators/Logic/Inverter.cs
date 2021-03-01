@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class Inverter : Decorator
 {
+    public Inverter(bool _isNot = false) : base(_isNot)
+    {
+    }
+
     public override NodeState Tick()
     {
         state = child.Tick();

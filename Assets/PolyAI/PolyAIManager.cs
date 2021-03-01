@@ -22,20 +22,9 @@ public class PolyAIManager : MonoBehaviour
 
     private List<PolyAgentBase> agents = new List<PolyAgentBase>();
     private List<ConstantUpdateNode> constantUpdateNodes = new List<ConstantUpdateNode>();
-    private KnowledgeBase commonKlg;
     private PolyAgentBT alertedSimpleAI;
 
     public List<ConstantUpdateNode> ConstantUpdateNodes { get => constantUpdateNodes; }
-
-    public void Start()
-    {
-        commonKlg = new KnowledgeBase();
-
-        foreach (PolyAgentBase agent in agents)
-        {
-            agent.SetCommonKlg(commonKlg);
-        }
-    }
 
     public void Update()
     {

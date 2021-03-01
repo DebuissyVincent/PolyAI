@@ -19,7 +19,7 @@ public class MoveTo : Task
 
     public MoveTo(PolyAgentBase _agent, string _destinationKlg, float _minRange = 0.0f, float _maxRange = -1.0f) : base(_agent)
     {
-        Knowledge klg = (Knowledge)agent.PrivateKlg;
+        Knowledge klg = (Knowledge)agent.Knowledge;
         if (klg != null)
         {
             Vector3 dest = (Vector3)klg.GetKnowledge(_destinationKlg);

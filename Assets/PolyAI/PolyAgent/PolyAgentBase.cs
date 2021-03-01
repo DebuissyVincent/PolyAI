@@ -7,22 +7,15 @@ public abstract class PolyAgentBase : MonoBehaviour
     //public abstract bool Interact();
 
     protected bool isActivated = false;
-    protected List<Sensor> sensors = new List<Sensor>();
-    protected KnowledgeBase commonKlg;
-    protected KnowledgeBase privateKlg;
+    protected KnowledgeBase knowledge;
     [SerializeField]
     protected float interval = 0.5f;
     protected float timer = 0.0f;
 
-    public KnowledgeBase PrivateKlg { get => privateKlg; }
-
-    public void SetCommonKlg(KnowledgeBase _knowledge)
-    {
-        commonKlg = _knowledge;
-    }
+    public KnowledgeBase Knowledge { get => knowledge; }
 
     public void SetPrivateKlg(KnowledgeBase _knowledge)
     {
-        commonKlg = _knowledge;
+        knowledge = _knowledge;
     }
 }

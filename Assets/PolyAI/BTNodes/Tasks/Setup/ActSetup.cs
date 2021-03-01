@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ActSetup : TaskSetup
 {
-    [SerializeField] private string action;
+    [SerializeField] private string action = "";
 
     public override Task SetupTask()
     {

@@ -20,7 +20,6 @@ public class Act : Task
 
     public override NodeState Tick()
     {   
-        Debug.Log(action);
         Animator animator = agent.GetComponent<Animator>();
         if (animator)
         {
@@ -41,6 +40,7 @@ public class Act : Task
             }
             else
             {
+                Debug.Log(action);
                 animator.SetBool(action, true);
                 state = NodeState.Running;
             }

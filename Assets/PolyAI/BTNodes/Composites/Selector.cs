@@ -6,23 +6,29 @@ public class Selector : Composite
 {
     public override NodeState Tick()
     {
-        // Check for every children until one successes
-        for (int i = lastRunning; i < child.Count; i = ++lastRunning)
-        {
-            state = child[i].Tick();
+        // Will tick all children until one succeeds
+        state = child[lastRunning].Tick();
 
-            if (state != NodeState.Failure)
+        if (state != NodeState.Failure)
+        {
+            // If success, reset of the selector
+            if (state == NodeState.Success)
             {
-                // If success, reset of the selector
-                if (state == NodeState.Success)
-                {
-                    lastRunning = 0;
-                }
-                return state;
+                lastRunning = 0;
             }
+            return state;
         }
-        // If no child succeded
-        lastRunning = 0;
-        return NodeState.Failure;
+
+        // If no child succeeded
+        if (lastRunning == child.Count)
+        {
+            lastRunning = 0;
+        }
+        else
+        {
+            state = NodeState.Running;
+        }
+
+        return state;
     }
 }

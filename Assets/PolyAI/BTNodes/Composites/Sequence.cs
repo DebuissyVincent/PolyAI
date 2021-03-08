@@ -14,22 +14,37 @@ public class Sequence : Composite
     public override NodeState Tick()
     {
         // Will tick all children in an orderly sequence
-        for (int i = lastRunning; i < child.Count; i = ++lastRunning)
-        {
-            state = child[i].Tick();
+        state = child[lastRunning].Tick();
 
-            if (state != NodeState.Success)
-            {
-                // If sequence is breakable upon failure
-                if (isBreakable && state != NodeState.Running)
+        switch (state)
+        {
+            case NodeState.Failure:
+                if (isBreakable)
                 {
                     lastRunning = 0;
                 }
-                return state;
-            }
+                else
+                {
+                    lastRunning++;
+                }
+                break;
+            case NodeState.Success:
+                lastRunning++;
+                break;
+            default:
+                break;
         }
-        // If all children have been ticked
-        lastRunning = 0;
-        return NodeState.Success;
+
+        if (lastRunning == child.Count)
+        {
+            // If all children have been ticked
+            lastRunning = 0;
+        }
+        else
+        {
+            state = NodeState.Running;
+        }
+
+        return state;
     }
 }

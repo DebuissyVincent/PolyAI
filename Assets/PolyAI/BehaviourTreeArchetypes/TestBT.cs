@@ -11,30 +11,22 @@ public class TestBT : BTSetup
 
         // Begin sequence
         IsAtPosition isAtPos = new IsAtPosition(_agent); // Check for nav agent destination
-        isAtPos.SetChild(new MoveTo(_agent, Vector3.zero));
+        isAtPos.SetChild(new MoveTo(_agent, transform.position + new Vector3(5.0f, 0.0f, 8.0f)));
         sequence.Child.Add(isAtPos);
 
-        sequence.Child.Add(new Wait(0.5f));
-        sequence.Child.Add(new Act(_agent, "Acting"));
-        sequence.Child.Add(new Wait()); // By default, waits for 1 second
-
-        Selector selector = new Selector();
-        sequence.Child.Add(selector);
-
-        // Begin Selector
-        Sequence sequence2 = new Sequence();
-        selector.Child.Add(sequence2);
-
-        // Begin sequence 2
-        IsAtPosition isAtPos2 = new IsAtPosition(_agent, Vector3.zero);
+        IsAtPosition isAtPos2 = new IsAtPosition(_agent);
         isAtPos2.SetChild(new Act(_agent, "Acting"));
-        sequence2.Child.Add(isAtPos2);
+        sequence.Child.Add(isAtPos2);
 
-        sequence2.Child.Add(new MoveTo(_agent, Vector3.forward * 3.0f));
-        // End sequence 2
+        IsAtPosition isAtPos3 = new IsAtPosition(_agent);
+        isAtPos3.SetChild(new MoveTo(_agent, transform.position - new Vector3(5.0f, 0.0f, 8.0f)));
+        sequence.Child.Add(isAtPos3);
 
-        selector.Child.Add(new Wait(5.0f));
-        // End selector
+        IsAtPosition isAtPos4 = new IsAtPosition(_agent);
+        isAtPos4.SetChild(new Act(_agent, "Acting"));
+        sequence.Child.Add(isAtPos4);
+
+        sequence.Child.Add(new Wait()); // By default, waits for 1 second
         // End sequence
     }
 }

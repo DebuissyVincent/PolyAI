@@ -13,4 +13,5 @@ MonoBehaviour:
   m_Name: TestKnowledge
   m_EditorClassIdentifier: 
   isAlert: 0
-  customKnowledge: []
+  entries:
+  - RandomPos

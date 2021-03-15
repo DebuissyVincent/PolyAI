@@ -4,25 +4,17 @@ using UnityEngine;
 
 public class PolyAgentSimple : PolyAgentBase
 {
-    private Task task;
+    private BTNode task;
 
-    private void Awake()
+    protected override void Awake()
     {
-        PolyAIManager.Instance.AddAgent(this);
+        base.Awake();
         TaskSetup setup = GetComponent<TaskSetup>();
         task = setup.SetupTask();
     }
 
-    private void Update()
+    public override void Tick()
     {
-        if (timer <= 0.0f)
-        {
-            task.Tick();
-            timer += interval;
-        }
-        else
-        {
-            timer -= Time.deltaTime;
-        }
+        task.Tick();
     }
 }

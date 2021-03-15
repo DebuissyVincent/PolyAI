@@ -4,7 +4,7 @@ using UnityEngine;
 
 public abstract class PolyAgentBase : MonoBehaviour
 {
-    //public abstract bool Interact();
+    PolyAIManager AIManager;
 
     protected bool isActivated = false;
     protected KnowledgeBase knowledge;
@@ -18,4 +18,25 @@ public abstract class PolyAgentBase : MonoBehaviour
     {
         knowledge = _knowledge;
     }
+
+    protected virtual void Awake()
+    {
+        AIManager = PolyAIManager.Instance();
+        AIManager.AddAgent(this);
+    }
+
+    public void UpdateTick()
+    {
+        if (timer <= 0.0f)
+        {
+            AIManager.RequestTick(this);
+            timer += interval;
+        }
+        else
+        {
+            timer -= Time.deltaTime;
+        }
+    }
+
+    public abstract void Tick();
 }

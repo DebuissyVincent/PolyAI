@@ -6,24 +6,16 @@ public class PolyAgentBT : PolyAgentBase
 {
     private BehaviourTree tree;
 
-    public void Awake()
+    protected override void Awake()
     {
-        PolyAIManager.Instance.AddAgent(this);
+        base.Awake();
         BTSetup setup = GetComponent<BTSetup>();
         setup.SetupTree(this);
     }
 
-    private void Update()
+    public override void Tick()
     {
-        if (timer <= 0.0f)
-        {
-            tree.Tick();
-            timer += interval;
-        }
-        else
-        {
-            timer -= Time.deltaTime;
-        }
+        tree.Tick();
     }
 
     public void SetBehaviourTree(BehaviourTree _bt)

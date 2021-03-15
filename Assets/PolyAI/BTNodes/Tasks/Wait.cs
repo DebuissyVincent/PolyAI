@@ -12,7 +12,7 @@ public class Wait : BTNode, ConstantUpdateNode
     {
         duration = _duration;
         //forceTickUponEnd = _forceTickUponEnd;
-        PolyAIManager.Instance.ConstantUpdateNodes.Add(this);
+        PolyAIManager.Instance().ConstantUpdateNodes.Add(this);
     }
 
     public void Update()
